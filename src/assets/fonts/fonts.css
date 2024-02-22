@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Noto";
+    font-style: italic;
+    font-weight: normal;
+    src: url("NotoSansJP-Medium.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Noto";
+    font-style: italic;
+    font-weight: bold;
+    src: url("NotoSansJP-Bold.ttf") format("opentype");
+}

@@ -1,0 +1,16 @@
+@import url(../../assets/styles/var.css);
+.main {
+    font-family: "Noto", sans-serif;
+    font-weight: 400;
+    padding: 3vw 2vw 0 2vw;
+    background-color: var(--main-bg-color);
+}
+
+.main h1 {
+    font-weight: normal;
+}
+
+.main-content {
+    display: flex;
+    grid-gap: 4vw;
+}

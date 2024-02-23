@@ -1,0 +1,14 @@
+.login {
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    border: 0;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    background-color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

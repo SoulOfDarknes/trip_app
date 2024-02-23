@@ -5,6 +5,7 @@ import { RootState } from 'redux/store';
 import { weatherIcons } from 'utils/constants';
 import { formatDayOfWeek } from 'utils/functions/formatDayOfWeek';
 import './styles.css'
+import { Login } from 'components/Login';
 
 interface WeatherSidebarProps {
   selectedCity: string ;
@@ -79,6 +80,7 @@ useEffect(() => {
           <div><span>{countdown.minutes}</span><span>minutes</span></div>
           <div><span>{countdown.seconds}</span><span>seconds</span></div>
       </div>
+      <Login/>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { cityImages } from 'utils/constants';
 import { WeatherInfoProps } from 'types/index';
 import { formatDate } from 'utils/functions/formatDate';
 
-export const WeatherInfo: React.FC<WeatherInfoProps> = ({ city }) => {
+export const WeatherInfo: React.FC<WeatherInfoProps> = ({ city, startDate, endDate }) => {
   const { data: weatherData, isLoading, error } = useFetchWeatherForCityQuery({ city });
   const imageUrl = cityImages[city as keyof typeof cityImages];
 
@@ -14,8 +14,11 @@ export const WeatherInfo: React.FC<WeatherInfoProps> = ({ city }) => {
   if (!weatherData) return null;
   if (!weatherData || weatherData.days.length < 7) return <p>Not enough data for a 7-day forecast.</p>;
 
-  const firstDayDate = formatDate(weatherData.days[0].datetime);
-  const seventhDayDate = formatDate(weatherData.days[6].datetime);
+  const formattedStartDate = formatDate(startDate);
+  const formattedEndDate = formatDate(endDate);
+
+  
+console.log('data', formattedEndDate)
 
   return (
     <div >
@@ -24,9 +27,9 @@ export const WeatherInfo: React.FC<WeatherInfoProps> = ({ city }) => {
         <h3>{city}</h3>
           <div className='days'>
             <p>
-          {firstDayDate}
+          {formattedStartDate}
           <span>-</span>
-          {seventhDayDate}
+          {formattedEndDate}
           </p>
         </div>
       </div>

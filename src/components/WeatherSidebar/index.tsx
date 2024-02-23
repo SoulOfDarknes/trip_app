@@ -24,7 +24,6 @@ useEffect(() => {
     const startDate = selectedTrip.startDate ? new Date(selectedTrip.startDate) : new Date();
     const difference = startDate.getTime() - now.getTime();
 
-    // Розрахунок різниці в часі
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -39,11 +38,6 @@ useEffect(() => {
   return () => clearInterval(intervalId);
 }, [selectedTrip]);
 
-
-
-console.log('datea', selectedTrip)
-
-    
   if (isFetching) {
     return <div>Loading weather...</div>;
   }

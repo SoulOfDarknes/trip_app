@@ -2,7 +2,7 @@ export interface Trip {
     id: string;
     city: string;
     startDate: string | undefined;
-    endDate?: string;
+    endDate: string;
     image?: string;
 
 }
@@ -55,7 +55,12 @@ export interface WeatherResponse {
     currentConditions: CurrentConditions;
 }
 
+export interface WeatherWeekInfoProps {
+    city: string;
+}
 export interface WeatherInfoProps {
     city: string;
+    startDate: string | undefined;
+    endDate: string | undefined;
 }
 

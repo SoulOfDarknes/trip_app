@@ -1,9 +1,9 @@
 import { DailyWeather } from "components/DailyWeather";
 import { useFetchWeatherForCityQuery } from "../../redux/api/weatherApi";
-import { WeatherInfoProps } from "types/index";
+import { WeatherWeekInfoProps } from "types/index";
 import './styles.css'
 
-export const WeeklyWeather : React.FC<WeatherInfoProps> = ({ city }) => {
+export const WeeklyWeather : React.FC<WeatherWeekInfoProps> = ({ city }) => {
   const { data: weatherData, isLoading, error } = useFetchWeatherForCityQuery({ city });
 
   if (isLoading) return <p>Loading...</p>;

@@ -29,13 +29,13 @@ export const Main: React.FC = () => {
     setSearchTerm(searchValue);
   };
 
-const handleAddTrip = (tripData: { city: string; startDate: Date | null; endDate: Date | null }) => {
+const handleAddTrip = (tripData: { city: string; startDate: string | null; endDate: string | null}) => {
   if (tripData.city && tripData.startDate && tripData.endDate) {
     const formattedTrip = {
       id: Date.now().toString(),
       city: tripData.city,
-      startDate: tripData.startDate.toISOString().split('T')[0],
-      endDate: tripData.endDate.toISOString().split('T')[0]
+      startDate: tripData.startDate.toString().split('T')[0],
+      endDate: tripData.endDate.toString().split('T')[0]
     };
     dispatch(addTrip(formattedTrip));
   }

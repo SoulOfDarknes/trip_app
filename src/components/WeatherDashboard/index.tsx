@@ -15,6 +15,8 @@ interface WeatherDashboardProps {
 export const WeatherDashboard : React.FC<WeatherDashboardProps> = ({ onCitySelect, selectedCity, trip})  => {
   const trips = useSelector((state: RootState) => state.trips.trips);
 
+
+  console.log('trips', trips)
   return (
     <div className='weather-wrapper'>
       <div className="weather-dashboard">
@@ -24,7 +26,7 @@ export const WeatherDashboard : React.FC<WeatherDashboardProps> = ({ onCitySelec
           onClick={() => onCitySelect(trip.city)}
           className={`weather-card ${selectedCity === trip.city ? 'selected' : ''}`}
         >
-          <WeatherInfo key={trip.id} city={trip.city} />
+          <WeatherInfo key={trip.id} city={trip.city} startDate={trip.startDate} endDate={trip.endDate} />
           
         </div>
        

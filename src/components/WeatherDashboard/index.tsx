@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from "react-redux";
 import { RootState } from "redux/store";
-import Slider from 'react-slick';
 import { WeatherInfo } from 'components/WeatherInfo';
+import './styles.css';
 import { WeeklyWeather } from 'components/WeeklyWeather';
-import 'slick-carousel/slick/slick.css'; 
-import 'slick-carousel/slick/slick-theme.css';
 
 interface WeatherDashboardProps {
   selectedCity: string;
@@ -13,28 +11,42 @@ interface WeatherDashboardProps {
   searchTerm: string;
 }
 
-export const WeatherDashboard: React.FC<WeatherDashboardProps> = ({ onCitySelect, selectedCity, searchTerm}) => {
-  const trips = useSelector((state: RootState) => state.trips.trips).filter(trip => 
-    trip.city.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+export const WeatherDashboard: React.FC<WeatherDashboardProps> = ({ onCitySelect, selectedCity, searchTerm }) => {
+  const [visibleStartIndex, setVisibleStartIndex] = useState(0);
+  const trips = useSelector((state: RootState) => state.trips.trips)
+    .filter(trip => trip.city.toLowerCase().includes(searchTerm.toLowerCase()))
+    .sort((a, b) => new Date(a.startDate || '1970-01-01').getTime() - new Date(b.startDate || '1970-01-01').getTime());
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1
+  const tripsToShow = trips.slice(visibleStartIndex, visibleStartIndex + 3);
+
+  const showPrevButton = visibleStartIndex > 0;
+  const showNextButton = visibleStartIndex + 3 < trips.length;
+
+  const handlePrevClick = () => {
+    setVisibleStartIndex(Math.max(0, visibleStartIndex - 3));
+  };
+
+  const handleNextClick = () => {
+    setVisibleStartIndex(Math.min(trips.length - 3, visibleStartIndex + 3));
   };
 
   return (
     <div className='weather-wrapper'>
-      <Slider {...settings}>
-        {trips.map((trip) => (
+
+      <div className='weather-cards-container'>
+              {showPrevButton && (
+        <button onClick={handlePrevClick} className='prev-button btn'></button>
+      )}
+        {tripsToShow.map((trip) => (
           <div key={trip.id} onClick={() => onCitySelect(trip.city)} className={`weather-card ${selectedCity === trip.city ? 'selected' : ''}`}>
-            <WeatherInfo key={trip.id} city={trip.city} startDate={trip.startDate} endDate={trip.endDate} />
+            <WeatherInfo city={trip.city} startDate={trip.startDate} endDate={trip.endDate} />
           </div>
         ))}
-      </Slider>
+      {showNextButton && (
+        <button onClick={handleNextClick} className='next-button btn'></button>
+      )}        
+      </div>
+
       <h2>Week</h2>
       <WeeklyWeather city={selectedCity} />
     </div>

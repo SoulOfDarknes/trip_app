@@ -1,3 +1,54 @@
 .weather-wrapper {
-    width: 70%;
+    width: 75%;
+    padding: 2vw 1vw;
+}
+
+.weather-cards-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.weather-cards-container .btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    background-color: inherit;
+}
+
+.button:disabled {
+    background-color: #ccc;
+}
+
+.next-button {
+    right: -2%;
+    top: 50%;
+    transform: translate(100%, -50%);
+    background-image: url("../../assets/img/arrow-right.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition: right 0.5s;
+}
+.prev-button {
+    left: -2%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    background-image: url("../../assets/img/arrow-left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition: right 0.5s;
+    z-index: 1;
+    transition: left 0.5s;
+}
+
+.next-button:hover {
+    right: -10px;
+}
+
+.prev-button:hover {
+    left: -10px;
 }

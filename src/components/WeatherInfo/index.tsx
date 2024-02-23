@@ -17,9 +17,6 @@ export const WeatherInfo: React.FC<WeatherInfoProps> = ({ city, startDate, endDa
   const formattedStartDate = formatDate(startDate);
   const formattedEndDate = formatDate(endDate);
 
-  
-console.log('data', formattedEndDate)
-
   return (
     <div >
       {imageUrl && <img src={imageUrl} alt={city} />}

@@ -11,7 +11,7 @@
 
 .main-wrapper {
     width: 70%;
-    padding: 3vw 2vw 0 2vw;
+    padding: 3vw 0 0 2vw;
     position: relative;
     z-index: 100;
 }
@@ -25,7 +25,8 @@
 
 .main-content {
     display: flex;
-    grid-gap: 2vw;
+    justify-content: space-between;
+    margin-right: 2vw;
 }
 
 .slick-track {
@@ -36,8 +37,4 @@
 
 .slick-slide {
     transition: all 0.7s;
-}
-
-.weather-wrapper {
-    width: 80%;
 }

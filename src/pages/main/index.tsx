@@ -12,8 +12,8 @@ import WeatherSidebar from 'components/WeatherSidebar';
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   
   const rawTrips = useSelector((state: RootState) => state.trips.trips);
 
@@ -50,24 +50,25 @@ const handleAddTrip = (tripData: { city: string; startDate: string | null; endDa
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <>
     <div className='main'>
+    <div className='main-wrapper'>
       <Header />
       <SearchBar onSearch={handleSearch} />
       <div className='main-content'>
       <WeatherDashboard 
-        selectedCity={selectedCity}
-        onCitySelect={handleCitySelect}
-        trip={trips}
+            selectedCity={selectedCity}
+            onCitySelect={handleCitySelect}
+            searchTerm={searchTerm}
       />
       <AddTripButton onOpenModal={openModal} />
           {isModalOpen && (
       <AddTripModal
-            onCloseModal={closeModal} onSaveTrip={handleAddTrip } />
+              onCloseModal={closeModal}
+              onSaveTrip={handleAddTrip} />
         )}
       </div>
       </div>
       <WeatherSidebar selectedCity={selectedCity}/>
-    </>
+    </div>
   );
 };

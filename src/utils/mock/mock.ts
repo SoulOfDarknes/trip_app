@@ -23,5 +23,4 @@ export const initialState: { trips: Trip[] } = {
 export const cities = [
     { city: 'Milano' },
     { city: 'Kyiv' },
-    // ... інші міста
 ];

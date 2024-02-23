@@ -1,6 +1,3 @@
-.weather-dashboard {
-    display: flex;
-    justify-content: space-between;
-    grid-gap: 4vw;
-    padding: 5vw 0;
+.weather-wrapper {
+    width: 70%;
 }

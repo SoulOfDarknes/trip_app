@@ -1,5 +1,4 @@
 .weather-card {
-    width: 20%;
     border: 1px solid var(--text-color);
     cursor: pointer;
     box-shadow:
@@ -25,7 +24,7 @@
 }
 
 .content {
-    padding: 1vw 2vw;
+    padding: 1vw;
 }
 
 .days p {

@@ -20,9 +20,8 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
   const maxDate = new Date();
   maxDate.setDate(today.getDate() + 15);
 
-  const startDateFormatted = startDate ? startDate.toLocaleDateString('en-CA') : null; // 'en-CA' формат YYYY-MM-DD
-const endDateFormatted = endDate ? endDate.toLocaleDateString('en-CA') : null;
-
+  const startDateFormatted = startDate ? startDate.toLocaleDateString('en-CA') : null;
+  const endDateFormatted = endDate ? endDate.toLocaleDateString('en-CA') : null;
   
 const handleSave = () => {
   if (city && startDate && endDate) {
@@ -35,11 +34,13 @@ const handleSave = () => {
   }
 };
 
-
+  const handleModalContentClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
+  };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="modal" onClick={onCloseModal}>
+      <div className="modal-content" onClick={handleModalContentClick}>
         <div className='modal-head'>
           <h2>Create trip</h2>
           <span className="close" onClick={onCloseModal}></span> 

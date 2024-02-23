@@ -2,10 +2,18 @@
 .main {
     font-family: "Noto", sans-serif;
     font-weight: 400;
-    padding: 3vw 2vw 0 2vw;
     background-color: var(--main-bg-color);
+    display: flex;
 }
 
+.main-wrapper {
+    width: 70%;
+    padding: 3vw 2vw 0 2vw;
+}
+
+.sidebar {
+    width: 30%;
+}
 .main h1 {
     font-weight: normal;
 }
@@ -13,4 +21,18 @@
 .main-content {
     display: flex;
     grid-gap: 4vw;
+}
+
+.slick-track {
+    padding: 30px 0;
+    display: flex !important;
+    grid-gap: 2vw;
+}
+
+.slick-slide {
+    transition: all 0.7s;
+}
+
+.weather-wrapper {
+    width: 70%;
 }

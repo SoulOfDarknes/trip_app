@@ -1,7 +1,8 @@
 import berlinImage from 'assets/img/city/berlin.jpg';
 import barcelonaImage from 'assets/img/city/barcelona.jpg';
 import TokyoImage from 'assets/img/city/tokio.jpg';
-import lvivImage from 'assets/img/city/lviv.png';
+import milanoImage from 'assets/img/city/milano.jpg';
+import kyivImage from 'assets/img/city/kyiv.jpeg';
 
 import clearDayImage from 'assets/img/weather/clear-day.svg';
 import cloudyDayImage from 'assets/img/weather/cloudy.svg';
@@ -20,7 +21,8 @@ export const cityImages = {
     Berlin: berlinImage,
     Tokyo: TokyoImage,
     Barcelona: barcelonaImage,
-    Lviv: lvivImage,
+    Milano: milanoImage,
+    Kyiv: kyivImage,
 };
 
 export const weatherIcons = {

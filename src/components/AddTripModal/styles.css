@@ -27,7 +27,7 @@
 .modal-actions {
     padding: 2vw;
     display: flex;
-    grid-gap: 2vw;
+    grid-gap: 1vw;
     flex-direction: row-reverse;
     background-color: var(--light-color);
 }
@@ -39,6 +39,63 @@ form {
     grid-gap: 3vw;
 }
 
+label span:before {
+    left: -10px;
+    top: 0;
+    position: absolute;
+    content: "*";
+    color: #ff004d;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    position: relative;
+    grid-gap: 0.5vw;
+}
+
+label span {
+    margin-left: 10px;
+    position: relative;
+}
+
+select {
+    width: 101% !important;
+}
+input,
+select {
+    padding: 4px;
+    border: 1px solid var(--text-color);
+    width: 100%;
+    position: relative;
+}
+
+.custom-select {
+    color: red; /* Колір для плейсхолдера */
+}
+
+.react-datepicker__input-container {
+    position: relative;
+}
+
+.react-datepicker__input-container::after {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/img/calendar.svg");
+    right: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.react-datepicker__tab-loop {
+    position: absolute;
+}
+
 button {
     padding: 0.5vw 1vw;
     cursor: pointer;
@@ -48,7 +105,13 @@ button {
     background-color: var(--btn-color);
     color: var(--main-bg-color);
     border: 1px solid var(--light-color);
+    transition: background-color 0.7s;
 }
+
+.btn-save:hover {
+    background-color: #387adf;
+}
+
 .close {
     cursor: pointer;
     width: fit-content;

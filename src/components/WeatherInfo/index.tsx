@@ -7,7 +7,7 @@ import { formatDate } from 'utils/functions/formatDate';
 
 export const WeatherInfo: React.FC<WeatherInfoProps> = ({ city }) => {
   const { data: weatherData, isLoading, error } = useFetchWeatherForCityQuery({ city });
- const imageUrl = cityImages[city as keyof typeof cityImages];
+  const imageUrl = cityImages[city as keyof typeof cityImages];
 
   if (isLoading) return <p>Loading weather for {city}...</p>;
   if (error) return <p>Error loading weather data for {city}.</p>;

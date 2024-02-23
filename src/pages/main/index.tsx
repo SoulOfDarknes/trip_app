@@ -1,15 +1,14 @@
 import React, { useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchBar } from '../../components/SearchBar';
-import { Trip } from '../../types';
 import { addTrip } from '../../redux/slice/tripsSlice';
 import { RootState } from '../../redux/store';
 import './styles.css'
 import { Header } from 'components/Header';
 import { WeatherDashboard } from 'components/WeatherDashboard';
-import { WeeklyWeather } from 'components/WeeklyWeather';
 import AddTripButton from 'components/AddTripButton';
 import AddTripModal from 'components/AddTripModal';
+import WeatherSidebar from 'components/WeatherSidebar';
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
@@ -30,16 +29,17 @@ export const Main: React.FC = () => {
     setSearchTerm(searchValue);
   };
 
-  const handleAddTrip = (tripData: { city: string; startDate: string; endDate: string }) => {
-
-    const newTrip = {
-      id: Date.now().toString(), 
-      ...tripData,
+const handleAddTrip = (tripData: { city: string; startDate: Date | null; endDate: Date | null }) => {
+  if (tripData.city && tripData.startDate && tripData.endDate) {
+    const formattedTrip = {
+      id: Date.now().toString(),
+      city: tripData.city,
+      startDate: tripData.startDate.toISOString().split('T')[0],
+      endDate: tripData.endDate.toISOString().split('T')[0]
     };
-    
-    dispatch(addTrip(newTrip)); 
-    closeModal(); 
-  };
+    dispatch(addTrip(formattedTrip));
+  }
+};
 
   const handleCitySelect = (city: string) => {
     setSelectedCity(city);
@@ -47,9 +47,10 @@ export const Main: React.FC = () => {
 
   const openModal = () => setIsModalOpen(true);
 
-const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
+    <>
     <div className='main'>
       <Header />
       <SearchBar onSearch={handleSearch} />
@@ -65,6 +66,8 @@ const closeModal = () => setIsModalOpen(false);
             onCloseModal={closeModal} onSaveTrip={handleAddTrip } />
         )}
       </div>
-    </div>
+      </div>
+      <WeatherSidebar selectedCity={selectedCity}/>
+    </>
   );
 };

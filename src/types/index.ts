@@ -1,9 +1,10 @@
 export interface Trip {
     id: string;
     city: string;
-    startDate?: string;
+    startDate: string | undefined;
     endDate?: string;
     image?: string;
+
 }
 
 export interface TripCardProps {

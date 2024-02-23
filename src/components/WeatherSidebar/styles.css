@@ -1,0 +1,157 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1vw;
+    background-color: var(--side-bar-color);
+    color: var(--main-bg-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.side-content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vw;
+    position: relative;
+    z-index: 50;
+}
+
+.sidebar::after {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    content: "";
+    background-image: url("/src/assets/img/cloud.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    animation: floatCloud 30s linear infinite;
+}
+.sidebar::before {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    content: "";
+    background-image: url("/src/assets/img/cloud.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    animation: floatCloudFar 30s linear infinite;
+}
+
+.weather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.today {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.today h3 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.weather p {
+    position: relative;
+}
+.weather span {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.weather p:after {
+    content: "°C";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -5px;
+    right: -10px;
+}
+.side-content img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.countdown > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 3px;
+    z-index: 51;
+}
+.countdown {
+    display: flex;
+    grid-gap: 1vw;
+    position: relative;
+}
+
+.countdown span:first-of-type {
+    font-size: 3rem;
+}
+.countdown span:last-of-type {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.countdown::after {
+    position: absolute;
+    top: 90%;
+    right: 0;
+    content: "";
+    background-image: url("/src/assets/img/cloud.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    animation: floatCloud 20s linear infinite;
+}
+.countdown::before {
+    position: absolute;
+    top: -230%;
+    right: 0;
+    content: "";
+    background-image: url("/src/assets/img/cloud.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    animation: floatCloudFar 20s linear infinite;
+}
+
+@keyframes floatCloud {
+    from {
+        right: -200px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes floatCloudFar {
+    from {
+        right: 100%;
+    }
+    to {
+        right: -400px;
+    }
+}

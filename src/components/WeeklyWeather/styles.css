@@ -1,5 +1,5 @@
 .weekly-weather {
     display: flex;
     align-items: center;
-    grid-gap: 3vw;
+    grid-gap: 1vw;
 }

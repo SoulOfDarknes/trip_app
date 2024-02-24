@@ -9,6 +9,7 @@ import clearDayImage from 'assets/img/weather/clear-day.svg';
 import cloudyDayImage from 'assets/img/weather/cloudy.svg';
 import partlyCloudyDayImage from 'assets/img/weather/partly-cloudy-day.svg';
 import rainImage from 'assets/img/weather/rain.svg';
+import snowImage from 'assets/img/weather/snow.svg';
 
 
 export const cityImages = {
@@ -25,5 +26,5 @@ export const weatherIcons = {
     "cloudy": cloudyDayImage,
     "partly-cloudy-day": partlyCloudyDayImage,
     "rain": rainImage,
-
+    "snow": snowImage,
 };

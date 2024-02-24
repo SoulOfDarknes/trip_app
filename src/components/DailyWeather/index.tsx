@@ -7,6 +7,8 @@ import './styles.css'
 export const DailyWeather: React.FC<{ day: WeatherDay }> = ({ day }) => {
   const imageUrl = weatherIcons[day.icon as keyof typeof weatherIcons];
 
+console.log('day', day)
+
   return (
     <div className="daily-weather">
       <p>{formatDayOfWeek(day.datetime)}</p>

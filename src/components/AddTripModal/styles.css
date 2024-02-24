@@ -77,27 +77,6 @@ select {
     position: relative;
 }
 
-/* .react-datepicker__input-container {
-    position: relative;
-}
-
-.react-datepicker__input-container::after {
-    content: "";
-    position: absolute;
-    background-image: url("../../assets/img/calendar.svg");
-    right: 5px;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-
-.react-datepicker__tab-loop {
-    position: absolute;
-} */
-
 button {
     padding: 0.5vw 1vw;
     cursor: pointer;

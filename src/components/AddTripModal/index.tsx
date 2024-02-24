@@ -18,7 +18,6 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
   const formattedMaxDate = maxDate.toISOString().split('T')[0];
 
   useEffect(() => {
-    // Якщо дата початку більша за дату закінчення, автоматично встановлюємо дату закінчення на день після дати початку
     if (startDate && endDate && startDate > endDate) {
       const adjustedEndDate = new Date(startDate);
       adjustedEndDate.setDate(adjustedEndDate.getDate() + 1);

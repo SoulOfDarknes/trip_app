@@ -41,17 +41,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser. T
 
 Instructions on how to use the app, including any configurations necessary to get the full functionality.
 
-## Contributing
-
-If your project is open for contributions, provide guidelines on how others can contribute to your project. Include instructions for forks, pull requests, and other necessary details.
-
 ## Authors
 
 * **Pylypenko Vasyl** - *Initial work* - (https://github.com/SoulOfDarknes)
-
-## License
-
-This project is licensed under the [MIT License](LICENSE.md) - see the file for details.
 
 ## Configuration
 

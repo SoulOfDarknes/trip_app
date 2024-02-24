@@ -6,7 +6,7 @@ const firebaseConfig = {
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const auth = getAuth();
 const googleAuthProvider = new GoogleAuthProvider();

@@ -45,10 +45,6 @@ Instructions on how to use the app, including any configurations necessary to ge
 
 * **Pylypenko Vasyl** - *Initial work* - (https://github.com/SoulOfDarknes)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE.md) - see the file for details.
-
 ## Configuration
 
 Before starting the project, you need to configure the environment variables required for the application to run properly.

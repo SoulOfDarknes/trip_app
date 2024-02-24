@@ -53,12 +53,6 @@ If your project is open for contributions, provide guidelines on how others can 
 
 This project is licensed under the [MIT License](LICENSE.md) - see the file for details.
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
 ## Configuration
 
 Before starting the project, you need to configure the environment variables required for the application to run properly.

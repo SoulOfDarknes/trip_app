@@ -77,7 +77,7 @@ select {
     position: relative;
 }
 
-.react-datepicker__input-container {
+/* .react-datepicker__input-container {
     position: relative;
 }
 
@@ -96,7 +96,7 @@ select {
 
 .react-datepicker__tab-loop {
     position: absolute;
-}
+} */
 
 button {
     padding: 0.5vw 1vw;

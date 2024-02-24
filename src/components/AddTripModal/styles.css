@@ -149,3 +149,12 @@ button {
     background-color: var(--side-bar-color);
     transform: scaleX(1.5);
 }
+
+.invalid {
+    border: 2px solid #ff0000;
+}
+
+.invalid::placeholder {
+    color: #ff0000;
+    opacity: 1;
+}

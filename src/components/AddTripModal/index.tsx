@@ -8,9 +8,12 @@ interface AddTripModalProps {
 }
 
 const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip }) => {
-  const [city, setCity] = useState('');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [city, setCity] = useState<string>('');
+  const [startDate, setStartDate] = useState<string>('');
+  const [endDate, setEndDate] = useState<string>('');
+    const [isCityValid, setIsCityValid] = useState<boolean>(true);
+  const [isStartDateValid, setIsStartDateValid] = useState<boolean>(true);
+  const [isEndDateValid, setIsEndDateValid] = useState<boolean>(true);
 
   const today = new Date().toISOString().split('T')[0];
   const maxDate = new Date();
@@ -26,12 +29,16 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
   }, [startDate, endDate]);
 
   const handleSave = () => {
-    if (city && startDate && endDate) {
-      onSaveTrip({ 
-        city, 
-        startDate, 
-        endDate
-      });
+    const cityValid = !!city;
+    const startDateValid = !!startDate;
+    const endDateValid = !!endDate && endDate >= startDate; // Додаткова перевірка для endDate
+
+    setIsCityValid(cityValid);
+    setIsStartDateValid(startDateValid);
+    setIsEndDateValid(endDateValid);
+
+    if (cityValid && startDateValid && endDateValid) {
+      onSaveTrip({ city, startDate, endDate });
       onCloseModal();
     }
   };
@@ -40,6 +47,8 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
     e.stopPropagation();
   };
 
+  const getValidationClass = (isValid: boolean) => isValid ? '' : 'invalid';
+  
   return (
     <div className="modal" onClick={onCloseModal}>
       <div className="modal-content" onClick={handleModalContentClick}>
@@ -50,7 +59,7 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
         <form onSubmit={e => e.preventDefault()}>
           <label>
             <span>City</span>
-            <select value={city} onChange={(e) => setCity(e.target.value)} required>
+            <select className={getValidationClass(isCityValid)} value={city} onChange={(e) => setCity(e.target.value)} required>
               <option value="">Please select a city</option>
               {cities.map((c) => (
                 <option key={c.city} value={c.city}>{c.city}</option>
@@ -60,6 +69,7 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
           <label>
             <span>Start date</span>
             <input
+              className={getValidationClass(isStartDateValid)}
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
@@ -70,6 +80,7 @@ const AddTripModal: React.FC<AddTripModalProps> = ({ onCloseModal, onSaveTrip })
           <label>
             <span>End date</span>
             <input
+              className={getValidationClass(isEndDateValid)}
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
